@@ -4,23 +4,19 @@
 class Solution {
 public:
     bool isCircularSentence(string sentence) {
-        vector<string> words;
         istringstream stream(sentence);
-        string word;
+        string pWord, word;
 
-        while(stream >> word){
-            words.push_back(word);
-        }
-
-        if(words[0].front() != words[words.size() - 1].back()){
+        if(!(stream >> pWord)){
             return false;
         }
-        
-        for(int i = 0; i < words.size() - 1; i++){
-            if(words[i].back() != words[i + 1].front()){
+
+        while(stream >> word) {
+            if (pWord.back() != word.front()){
                 return false;
             }
+            pWord = word;
         }
-        return true;
+        return pWord.back() == sentence.front();
     }
 };
