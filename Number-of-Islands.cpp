@@ -15,13 +15,12 @@ class Solution {
 
             //traverse the neighbours
             int directions[4][2] = {{-1,0},{1,0},{0,-1},{0,1}};
-for(int i = 0; i < 4; ++i) {
-    int nrow = row + directions[i][0];
-    int ncol = col + directions[i][1];
-    if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m 
-       && grid[nrow][ncol] == '1' && !visited[nrow][ncol]) {
-        visited[nrow][ncol] = 1;
-        q.push({nrow,ncol});
+                for(int i = 0; i < 4; ++i) {
+                    int nrow = row + directions[i][0];
+                    int ncol = col + directions[i][1];
+                    if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == '1' && !visited[nrow][ncol]) {
+                    visited[nrow][ncol] = 1;
+                    q.push({nrow,ncol});
     }
 }
 
